@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: niks-microservice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: niks-microservice
+  template:
+    metadata:
+      labels:
+        app: niks-microservice
+    spec:
+      containers:
+      - name: niks-microservice
+        image: s222202583/nikskubernetesimage
+        ports:
+        - containerPort: 8080
